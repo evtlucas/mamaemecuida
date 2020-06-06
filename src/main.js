@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import router from './router'
+import myRouter from './router'
 import { store } from './store'
 
 const fb = require('./firebaseService')
@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 let app
 fb.auth.onAuthStateChanged(user => {
   if (!app) {
+    const router = myRouter.router
     app = new Vue({
       el: '#app',
       router,
