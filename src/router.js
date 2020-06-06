@@ -5,32 +5,34 @@ import AdminPage from '@/components/AdminPage'
 
 const fb = require('./firebaseService')
 
+const routes = [
+  {
+    path: '*',
+    redirect: '/'
+  },
+  {
+    path: '/',
+    name: 'MainPage',
+    component: MainPage
+  },
+  {
+    path: '/login',
+    name: 'LoginPage',
+    component: LoginPage
+  },
+  {
+    path: '/admin',
+    name: 'AdminPage',
+    component: AdminPage,
+    meta: {
+      requiresAuth: true
+    }
+  }
+]
+
 const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '*',
-      redirect: '/'
-    },
-    {
-      path: '/',
-      name: 'MainPage',
-      component: MainPage
-    },
-    {
-      path: '/login',
-      name: 'LoginPage',
-      component: LoginPage
-    },
-    {
-      path: '/admin',
-      name: 'AdminPage',
-      component: AdminPage,
-      meta: {
-        requiresAuth: true
-      }
-    }
-  ]
+  routes: routes
 })
 
 router.beforeEach((to, from, next) => {
@@ -46,4 +48,4 @@ router.beforeEach((to, from, next) => {
   }
 })
 
-export default router
+export default { router, routes }
