@@ -3,6 +3,11 @@ import MainPage from '../components/MainPage.vue'
 
 
 describe('MainPage tests', () => {
+    afterEach(() => {
+        jest.resetModules();
+        jest.clearAllMocks();
+    })
+
     test('has a title', () => {
         const wrapper = shallowMount(MainPage)
         const title = wrapper.find('#title')
