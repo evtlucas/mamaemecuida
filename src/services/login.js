@@ -1,5 +1,5 @@
 const fb = require('../firebaseService')
 
-export default async function (email, password) {
+export async function signIn (email, password) {
   return await fb.auth.signInWithEmailAndPassword(email, password)
 }

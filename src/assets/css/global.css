@@ -12,6 +12,7 @@ input {
 body {
   background-color: #f5f1f1;
   margin: 0;
+  font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
 }
 
 .accent1 {
@@ -26,6 +27,13 @@ body {
   background-color: #f4b3b0;
 }
 
-.default-font {
-  font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+.error-msg {
+  margin-top: 1rem;
+	text-align: center;
 }
+
+.error-msg > p {
+	color: #ef5777;
+	margin: 0;
+}
+

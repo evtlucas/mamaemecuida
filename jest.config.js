@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
     verbose: true,
+    setupFilesAfterEnv: [ './jest.setup.js' ],
     roots: ["<rootDir>/src/__tests__/"],
     moduleFileExtensions: ['js', 'json', 'vue'],
     moduleNameMapper: {

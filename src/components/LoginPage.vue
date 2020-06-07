@@ -2,12 +2,11 @@
   <div id="login">
     <section>
       <form action="#" @submit.prevent="login">
-        <label for="email" class="default-font">Usuário</label>
+        <label for="email">Usuário</label>
         <input
           type="text"
           id="email"
           v-model.trim="loginForm.email"
-          class="default-font"
           placeholder="you@email.com"
           data-email
         />
@@ -16,17 +15,19 @@
           type="password"
           id="password"
           v-model.trim="loginForm.password"
-          class="default-font"
           data-password
         />
-        <button class="default-font">Login</button>
+        <button>Login</button>
+        <div v-if="errorMsg !== ''" id="error-msg" class="error-msg">
+          <p>{{ errorMsg }}</p>
+        </div>
       </form>
     </section>
   </div>
 </template>
 
 <script>
-import loginFunction from '../services/login'
+import { signIn } from '../services/login'
 
 export default {
   name: 'login',
@@ -35,12 +36,13 @@ export default {
       loginForm: {
         email: '',
         passsword: ''
-      }
+      },
+      errorMsg: ''
     }
   },
   methods: {
     login () {
-      loginFunction(
+      signIn(
         this.loginForm.email,
         this.loginForm.password
       )
@@ -49,7 +51,7 @@ export default {
           this.$router.push('/admin')
         })
         .catch(err => {
-          console.log(err)
+          this.errorMsg = err.message
         })
     }
   }
