@@ -8,9 +8,30 @@
       <h1 id="title">mamãe me cuida</h1>
       <div id="menu">
         <ul>
-          <li class="default-font">Mamães</li>
-          <li class="default-font">Bebês</li>
-          <li class="default-font">Kids</li>
+          <li>
+            <a>Mamães</a>
+            <ul class="submenu">
+              <li v-for="cat in momCategories" v-bind:key="cat">
+                <p>{{ cat }}</p>
+              </li>
+            </ul>
+          </li>
+          <li >
+            <a>Bebês</a>
+            <ul class="submenu">
+              <li v-for="cat in babyCategories" v-bind:key="cat">
+                <p>{{ cat }}</p>
+              </li>
+            </ul>
+          </li>
+          <li >
+            <a>Kids</a>
+            <ul class="submenu">
+              <li v-for="cat in kidsCategories" v-bind:key="cat">
+                <p>{{ cat }}</p>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
       <div id="search-box">
@@ -31,9 +52,41 @@
 <script>
 import Billboard from './Billboard'
 
+const fb = require('../firebaseService')
+
 export default {
   components: {
     Billboard
+  },
+  data () {
+    return {
+      momMenu: 'mamae',
+      momCategories: [],
+      babyMenu: 'bebe',
+      babyCategories: [],
+      kidsMenu: 'kids',
+      kidsCategories: []
+    }
+  },
+  methods: {
+    async loadCategories () {
+      this.momCategories = await this.loadCategory(this.momMenu)
+      this.babyCategories = await this.loadCategory(this.babyMenu)
+      this.kidsCategories = await this.loadCategory(this.kidsMenu)
+    },
+    async loadCategory (menu) {
+      const categories = []
+      await fb.categoriesCollection.where('menu', '==', menu).get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const category = doc.data()
+          categories.push(category.category)
+        })
+      })
+      return categories
+    }
+  },
+  mounted () {
+    this.loadCategories()
   }
 }
 </script>
@@ -61,7 +114,7 @@ export default {
 }
 
 #menu > ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin-left: 10px
 }
@@ -69,6 +122,27 @@ export default {
 #menu > ul > li {
   display: inline;
   margin-right: 50px;
+  position: relative;
+}
+
+#menu > ul > li:hover .submenu, .submenu > li.over ul {
+  display: block;
+}
+
+.submenu {
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  padding: 0;
+  background-color: white;
+  display: none;
+}
+
+.submenu > li {
+  display: block;
+  position: relative;
+  width: 100px;
+  padding-left: 5px;
 }
 
 #search-box {

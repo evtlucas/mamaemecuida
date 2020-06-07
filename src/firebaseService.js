@@ -3,7 +3,7 @@ import 'firebase/firestore'
 import { config } from './firebaseConfig'
 
 let db = null
-
+/*
 if (process.env.NODE_ENV === 'development') {
   const firebaseConfig = {
     apiKey: config.apiKey,
@@ -18,13 +18,19 @@ if (process.env.NODE_ENV === 'development') {
   firebase.initializeApp(config)
   db = firebase.firestore()
 }
+*/
+
+firebase.initializeApp(config)
+db = firebase.firestore()
 
 // firebase utils
 const auth = firebase.auth()
 const currentUser = auth.currentUser
+const categoriesCollection = db.collection('categories')
 
 export {
   db,
   auth,
-  currentUser
+  currentUser,
+  categoriesCollection
 }
