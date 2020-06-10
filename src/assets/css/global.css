@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 @import url('https://fonts.googleapis.com/css?family=Butterfly+Kids');
 
-input {
-  border: 1px solid grey;
-}
-
-.foreground {
-  background-color: rgb(46, 129, 180);
+* {
+  box-sizing: border-box;
 }
 
 body {
   background-color: #f5f1f1;
   margin: 0;
   font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+input {
+  border: 1px solid grey;
+}
+
+.foreground {
+  background-color: rgb(46, 129, 180);
 }
 
 .accent1 {

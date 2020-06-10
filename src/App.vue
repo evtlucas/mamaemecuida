@@ -14,24 +14,16 @@ export default {
 <style scoped>
 
 #app {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 5vw;
+  margin-right: 5vw;
   background-color: white;
   height: 100vh;
 }
 
-#title-box {
-  margin: 10px;
-  width: 100%;
-  float: left;
-}
-
-#title {
-  font-family: 'Butterfly Kids', arial, sans-serif;
-  font-size: 50px;
-  text-align: left;
-  float: left;
-  margin: 0;
+@media screen and (max-width: 768px) {
+  #app {
+    margin: 0;
+  }
 }
 
 </style>
