@@ -17,12 +17,13 @@ export default {
   margin-left: 5vw;
   margin-right: 5vw;
   background-color: white;
-  height: 100vh;
+  height: 170vh;
 }
 
 @media screen and (max-width: 768px) {
   #app {
     margin: 0;
+    height: 110vh;
   }
 }
 

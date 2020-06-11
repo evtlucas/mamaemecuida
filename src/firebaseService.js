@@ -27,10 +27,12 @@ db = firebase.firestore()
 const auth = firebase.auth()
 const currentUser = auth.currentUser
 const categoriesCollection = db.collection('categories')
+const productsCollection = db.collection('products')
 
 export {
   db,
   auth,
   currentUser,
-  categoriesCollection
+  categoriesCollection,
+  productsCollection
 }

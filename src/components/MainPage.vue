@@ -50,17 +50,18 @@
       </div>
     </div>
     <Billboard></Billboard>
+    <ShowCase></ShowCase>
   </div>
 </template>
 
 <script>
 import Billboard from './Billboard'
-
+import ShowCase from './ShowCase'
 const fb = require('../firebaseService')
 
 export default {
   components: {
-    Billboard
+    Billboard, ShowCase
   },
   data () {
     return {
@@ -155,6 +156,7 @@ export default {
   z-index: 10;
   border: 1px solid #afa2b1;
   border-radius: 5px;
+  margin-top: 5px;
 }
 
 .submenu > li {

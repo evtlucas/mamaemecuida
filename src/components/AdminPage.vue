@@ -3,11 +3,14 @@
     <h1>Admin</h1>
     <button @click='logout'>Logout</button>
     <button @click='createCategories'>Create categories</button>
+    <button @click='createProducts'>Create products</button>
     <p v-if="msg.length > 0">{{ msg }}</p>
   </div>
 </template>
 
 <script>
+const categoriesData = require('../data/categories')
+const productsData = require('../data/products')
 const fb = require('../firebaseService')
 
 export default {
@@ -24,23 +27,20 @@ export default {
       })
     },
     createCategories () {
-      const categories = {
-        m_shampoo: {
-          category: 'Shampoo',
-          menu: 'mamae'
-        },
-        m_sabonete: {
-          category: 'Sabonete',
-          menu: 'mamae'
-        },
-        m_creme: {
-          category: 'Creme',
-          menu: 'mamae'
-        }
-      }
+      const categories = categoriesData.categories
       for (var prop in categories) {
         fb.categoriesCollection.doc(prop).set(categories[prop]).then(() => {
-          this.msg = 'Category created'
+          this.msg = 'Created categories'
+        }).catch(err => {
+          this.msg = err.message
+        })
+      }
+    },
+    createProducts () {
+      const products = productsData.products
+      for (var prop in products) {
+        fb.productsCollection.doc(prop).set(products[prop]).then(() => {
+          this.msg = 'Created products'
         }).catch(err => {
           this.msg = err.message
         })
