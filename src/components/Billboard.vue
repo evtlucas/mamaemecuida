@@ -11,9 +11,6 @@
 </template>
 
 <script>
-/*
-* Photo by The Honest Company on Unsplash
-*/
 import backgroundUrl from '@/assets/images/care.jpg'
 
 export default {
