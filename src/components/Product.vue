@@ -2,13 +2,11 @@
   <div class="product">
     <div class="picture_container">
       <div class="centralizer">
-        <img class="product_picture" :src="product.url_picture"/>
+        <img height="130vh" :src="product.url_picture"/>
       </div>
     </div>
+    <a :href="product.url" class="details-link accent1">Detalhes</a>
     <span class="product_title">{{ product.title }}</span>
-    <div class="centralizer">
-      <a :href="product.url" class="accent1">Detalhes</a>
-    </div>
   </div>
 </template>
 
@@ -25,53 +23,58 @@ export default {
   display: inline-block;
   margin-left: 1vw;
   margin-right: 1vw;
+  margin-top: 2vh;
   width: 18vw;
-  height: 40vh;
+  height: 42vh;
   vertical-align: top;
   border-radius: 5px;
   border: 1px solid #afa2b1;
+  text-align: center;
 }
 
 .picture_container {
   position: relative;
   float: left;
   width: 100%;
+  margin-top: 1vh;
 }
 
 .centralizer {
-  width: 12vw;
+  text-align: center;
   margin: auto;
-}
-
-.product_picture {
-  width: 12vw;
 }
 
 .product_title {
   display: inline-block;
+  width: 18vw;
   font-size: .8em;
   padding: 0vw 1vw 0vw 1vw;
 }
 
-a {
+.details-link {
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  width: 12vw;
+  width: 8vw;
   font-size: .8em;
   font-weight: bold;
-  margin-top: 1vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   padding: 1vw;
   color: white;
 }
 
 @media screen and (max-width: 768px) {
+  img {
+    height: 10vh !important;
+  }
   .product {
     height: 25vh;
     width: 35vw;
     margin-left: 1vw;
     margin-right: 1vw;
     margin-top: 1vh;
+    text-align: center;
   }
 
   .product_picture {
@@ -81,6 +84,7 @@ a {
   .product_title {
     font-size: .6em;
     height: 5vh;
+    width: 35vw !important;
   }
 
   .centralizer {
@@ -92,9 +96,11 @@ a {
     width: 18vw;
   }
 
-  a {
+  .details-link {
     width: 20vw;
     font-size: .7em;
+    margin-left: 0vw;
+    margin-top: 1vh !important;
   }
 }
 </style>

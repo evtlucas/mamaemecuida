@@ -1,22 +1,21 @@
 <template>
   <div>
     <Menu></Menu>
-    <section id="search">
-      <div id="inner-search">
-        <Product v-for="product in products" :key="product" :product="product">
-        </Product>
-      </div>
-    </section>
+    <ProductShowCase :products="products"></ProductShowCase>
   </div>
 </template>
 
 <script>
 import Menu from './Menu'
-import Product from './Product'
+import ProductShowCase from './ProductShowCase'
 
 const fb = require('../firebaseService')
 
 export default {
+  components: {
+    Menu,
+    ProductShowCase
+  },
   data () {
     return {
       products: []
@@ -26,10 +25,6 @@ export default {
     '$route.query': function () {
       this.loadProducts()
     }
-  },
-  components: {
-    Menu,
-    Product
   },
   methods: {
     filterString (unfiltered) {
@@ -57,19 +52,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-#search {
-  clear: both;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-#inner-search {
-  width: 80vw;
-  margin: auto;
-}
-
-</style>

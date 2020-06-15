@@ -17,7 +17,9 @@
             <a>Mamães</a>
             <ul class="submenu">
               <li v-for="cat in momCategories" v-bind:key="cat">
-                <p>{{ cat }}</p>
+                <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
+                {{ cat.category }}
+                </router-link>
               </li>
             </ul>
           </li>
@@ -25,7 +27,9 @@
             <a>Bebês</a>
             <ul class="submenu">
               <li v-for="cat in babyCategories" v-bind:key="cat">
-                <p>{{ cat }}</p>
+                <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
+                {{ cat.category }}
+                </router-link>
               </li>
             </ul>
           </li>
@@ -33,7 +37,9 @@
             <a>Kids</a>
             <ul class="submenu">
               <li v-for="cat in kidsCategories" v-bind:key="cat">
-                <p>{{ cat }}</p>
+                <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
+                {{ cat.category }}
+                </router-link>
               </li>
             </ul>
           </li>
@@ -85,7 +91,7 @@ export default {
       if (query.length < 3) {
         return
       }
-      this.$router.push({ path: '/products', query: { query: query } })
+      this.$router.push({ path: '/produtos', query: { query: query } })
     },
     loadCategories () {
       this.momCategories = this.loadCategory(this.momMenu)
@@ -96,7 +102,7 @@ export default {
       const categArray = []
       categories.categories.filter((value, index, array) => {
         if (value.menu === menu) {
-          categArray.push(value.category)
+          categArray.push(value)
         }
       })
       return categArray
@@ -128,6 +134,11 @@ export default {
   color: black;
 }
 
+#link:visited {
+  text-decoration: none;
+  color: black;
+}
+
 #title-mobile {
   display: none;
 }
@@ -151,13 +162,21 @@ export default {
   position: relative;
 }
 
+.menu-link {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 #menu > ul > li:hover .submenu, .submenu > li.over ul {
   display: block;
 }
 
 .submenu {
   position: absolute;
-  top: 15px;
+  top: 12px;
   left: 0px;
   padding: 0;
   background-color: white;

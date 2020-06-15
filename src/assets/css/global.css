@@ -10,6 +10,7 @@ body {
   margin: 0;
   font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
   font-size: 1em;
+  height: 100%;
 }
 
 input {

@@ -3,6 +3,7 @@ import MainPage from '@/components/MainPage'
 import LoginPage from '@/components/LoginPage'
 import AdminPage from '@/components/AdminPage'
 import SearchProduct from '@/components/SearchProduct'
+import Categories from '@/components/Categories'
 
 const fb = require('./firebaseService')
 
@@ -22,9 +23,14 @@ const routes = [
     component: LoginPage
   },
   {
-    path: '/products',
+    path: '/produtos',
     name: 'Products',
     component: SearchProduct
+  },
+  {
+    path: '/categorias/:menu/:submenu',
+    name: 'Categories',
+    component: Categories
   },
   {
     path: '/admin',
