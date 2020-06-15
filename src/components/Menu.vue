@@ -16,7 +16,7 @@
           <li>
             <a>Mamães</a>
             <ul class="submenu">
-              <li v-for="cat in momCategories" v-bind:key="cat">
+              <li v-for="cat in momCategories" v-bind:key="cat.code">
                 <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
                 {{ cat.category }}
                 </router-link>
@@ -26,7 +26,7 @@
           <li>
             <a>Bebês</a>
             <ul class="submenu">
-              <li v-for="cat in babyCategories" v-bind:key="cat">
+              <li v-for="cat in babyCategories" v-bind:key="cat.code">
                 <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
                 {{ cat.category }}
                 </router-link>
@@ -36,7 +36,7 @@
           <li>
             <a>Kids</a>
             <ul class="submenu">
-              <li v-for="cat in kidsCategories" v-bind:key="cat">
+              <li v-for="cat in kidsCategories" v-bind:key="cat.code">
                 <router-link class="menu-link" :to="{ name: 'Categories', params: { menu: `${cat.menu}`, submenu: `${cat.submenu}` }}">
                 {{ cat.category }}
                 </router-link>
