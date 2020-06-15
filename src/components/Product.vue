@@ -68,6 +68,7 @@ export default {
   img {
     height: 10vh !important;
   }
+
   .product {
     height: 25vh;
     width: 35vw;
@@ -101,6 +102,35 @@ export default {
     font-size: .7em;
     margin-left: 0vw;
     margin-top: 1vh !important;
+  }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  img {
+    height: 20vh !important;
+  }
+
+  .product {
+    display: inline-block;
+    width: 35vw;
+    height: 45vh;
+  }
+
+  .product_title {
+    display: inline-block;
+    width: 33vw !important;
+    font-size: .7em;
+    padding: 0vw 1vw 0vw 1vw;
+  }
+
+  .details-link {
+    width: 10vw;
+    font-size: .7em;
+    font-weight: bold;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 1vw;
+    color: white;
   }
 }
 </style>

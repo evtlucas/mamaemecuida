@@ -95,4 +95,24 @@ export default {
   }
 }
 
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #img-shadow {
+    height: 80vh !important;
+    background-size: 80vw 80vh !important;
+  }
+
+  #p-box {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    height: 76vh;
+    width: 15vw;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    padding-top: 100px;
+    box-sizing: border-box;
+    background-color: rgba(244,179,176,.5);
+  }
+}
+
 </style>

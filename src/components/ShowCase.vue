@@ -64,4 +64,11 @@ export default {
     height: 50vh;
   }
 }
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #showcase {
+    background-color: white;
+    height: 90vh;
+  }
+}
 </style>

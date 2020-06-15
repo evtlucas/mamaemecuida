@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'App',
+  title: 'Mamãe Me Cuida',
   components: {}
 }
 </script>
@@ -24,6 +25,12 @@ export default {
   #app {
     margin: 0;
     height: 110vh;
+  }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #app {
+    height: 170vh;
   }
 }
 
